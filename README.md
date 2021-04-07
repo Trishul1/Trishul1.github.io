@@ -21,6 +21,17 @@ how |	Text (inner or outer, defaults to inner)
 left_key |	Text (key in the previous stage)
 right_key |	Text (key of the selected collection)
 
+#### Example:
+```json
+{
+  "type": "left join",
+  "how": "outer",
+  "collection": "1017",
+  "left_key": "adress",
+  "right_key": "adress",
+  "prefix": "new_"
+}
+```
 # Show
 This type is used for selecting keys to pass to the next stage.
 
@@ -28,6 +39,13 @@ Name | Value
 --- | ---
 columns	| Array (List containing names of the keys)
 
+#### Example:
+```json
+{
+  "type": "show",
+  "columns": ["new_acceptance", "adress", "building_year", "house_price", "postcode"]
+}
+```
  
 # Limit
 This type will limit the amount of items passed down to the next stage.
@@ -44,5 +62,34 @@ Name | Value
 field	| Text
 how	| Text (ASC or DESC, defaults to DESC)
 
+#### Example:
+```json
+{
+  "type": "order",
+  "steps": [{
+      "field": "postcode",
+      "how": "DESC"
+  }]
+}
+```
+
 # Group
 In order to create calculated values over multiple items the group stage exists. In this stage the join keys must be declared together with the calculated keys it must retain. All keys not set here will not be passed down. 
+
+#### Example:
+```json
+{
+  "type": "group",
+  "by": ["postcode"],
+  "fields": { 
+      "ucount": {
+          "type": "ucount",
+          "column": "house_price"
+      },
+      "address": {
+          "type": "first",
+          "column": "adress"
+      }
+  }
+}
+```
