@@ -3,38 +3,42 @@ The query editor is meant to create a pipeline that transforms data at the lates
 
 # Pipeline
 The top layer of the query editor consists of the stages together forming the pipeline. These stages can be used in any quantity and order, but caution is advised for the sake of time-to-live of the widget. At the start of the pipeline the data will be passed down of the collection selected in the form. The data for the last stage will be passed down to the widget and can then be configured in the widget configuration. The last stage will always be limited to 100 items maximum to guarantee performance. The stages can have multiple different types:
-•	left join
-•	show
-•	limit
-•	order
-•	group
-•	filters
-•	kpis
+*	left join
+*	show
+*	limit
+*	order
+*	group
+*	filters
+*	kpis
 
 # Left join
 This type is intended for joining data from a collection within the same app. This would be used if the data necessary for a table is split up in 2 or more collections (i.e. employee and manager). Below are the possible options to pass to this stage.
-Name	Value
-collection	Text
-how	Text (inner or outer, defaults to inner)
-left_key	Text (key in the previous stage)
-right_key	Text (key of the selected collection)
+Name | Value
+--- | ---
+collection | Text
+how |	Text (inner or outer, defaults to inner)
+left_key |	Text (key in the previous stage)
+right_key |	Text (key of the selected collection)
 
 # Show
 This type is used for selecting keys to pass to the next stage.
-Name	Value
-columns	Array (List containing names of the keys)
+Name | Value
+--- | ---
+columns	| Array (List containing names of the keys)
 
  
 # Limit
 This type will limit the amount of items passed down to the next stage.
-Name	Value
-amount	Number
+Name | Value
+---|---
+amount |	Number
 
 # Order
 The order stage allows you to order all the items passed down on multiple fields. Therefore this stage contains a ‘steps’ field which is a list that allows for multiple keys to be declared. Every step in this list must contain the following keys:
-Name	Value
-field	Text
-how	Text (ASC or DESC, defaults to DESC)
+Name | Value
+---|---
+field	| Text
+how	| Text (ASC or DESC, defaults to DESC)
 
 # Group
 In order to create calculated values over multiple items the group stage exists. In this stage the join keys must be declared together with the calculated keys it must retain. All keys not set here will not be passed down. 
