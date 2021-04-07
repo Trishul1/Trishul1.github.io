@@ -13,6 +13,7 @@ The top layer of the query editor consists of the stages together forming the pi
 
 # Left join
 This type is intended for joining data from a collection within the same app. This would be used if the data necessary for a table is split up in 2 or more collections (i.e. employee and manager). Below are the possible options to pass to this stage.
+
 Name | Value
 --- | ---
 collection | Text
@@ -22,6 +23,7 @@ right_key |	Text (key of the selected collection)
 
 # Show
 This type is used for selecting keys to pass to the next stage.
+
 Name | Value
 --- | ---
 columns	| Array (List containing names of the keys)
@@ -29,12 +31,14 @@ columns	| Array (List containing names of the keys)
  
 # Limit
 This type will limit the amount of items passed down to the next stage.
+
 Name | Value
 ---|---
 amount |	Number
 
 # Order
 The order stage allows you to order all the items passed down on multiple fields. Therefore this stage contains a ‘steps’ field which is a list that allows for multiple keys to be declared. Every step in this list must contain the following keys:
+
 Name | Value
 ---|---
 field	| Text
