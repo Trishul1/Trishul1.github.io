@@ -22,7 +22,7 @@ left_key |	Text (key in the previous stage)
 right_key |	Text (key of the selected collection)
 
 #### Example:
-```json
+```javascript
 {
   "type": "left join",
   "how": "outer",
