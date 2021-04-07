@@ -28,8 +28,7 @@ right_key |	Text (key of the selected collection)
   "how": "outer",
   "collection": "1017",
   "left_key": "adress",
-  "right_key": "adress",
-  "prefix": "new_"
+  "right_key": "adress"
 }
 ```
 # Show
