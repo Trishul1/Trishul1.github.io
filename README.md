@@ -62,7 +62,7 @@ field	| Text
 how	| Text (ASC or DESC, defaults to DESC)
 
 #### Example:
-```json
+```
 {
   "type": "order",
   "steps": [{
